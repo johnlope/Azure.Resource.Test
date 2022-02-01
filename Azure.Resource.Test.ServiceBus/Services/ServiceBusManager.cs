@@ -36,7 +36,8 @@ namespace Azure.Resource.Test.ServiceBus.Services
                 Random r = new Random();
                 int index = r.Next(0, companyCode.Length); //for ints
 
-                var message = new ServiceBusMessage();
+                var message = new ServiceBusMessage($"Message {companyCode[index]}");
+
                 message.MessageId = Guid.NewGuid().ToString();
                 message.ApplicationProperties.Add("CompanyCode", companyCode[index]);
                 message.ApplicationProperties.Add("Destination", destination);
