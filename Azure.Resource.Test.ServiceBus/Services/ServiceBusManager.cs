@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Azure.Resource.Test.ServiceBus.Services
 {
-    internal class ServiceBusManager
+    public class ServiceBusManager
     {
 
         // connection string to your Service Bus namespace
@@ -63,6 +63,40 @@ namespace Azure.Resource.Test.ServiceBus.Services
                 await client.DisposeAsync();
             }
 
+        }
+
+        public async Task SendMessageAsync(string topicName, string subscriptionName, string text)
+        {
+            client = new ServiceBusClient(connectionString);
+            sender = client.CreateSender(topicName);
+
+            using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+
+            var message = new ServiceBusMessage(text);
+
+            message.MessageId = Guid.NewGuid().ToString();
+            message.ApplicationProperties.Add("CompanyCode", "RQ");
+            message.ApplicationProperties.Add("Destination", subscriptionName);
+
+            if (!messageBatch.TryAddMessage(message))
+            {
+                // if it is too large for the batch
+                throw new Exception($"The message {message} is too large to fit in the batch.");
+            }
+
+            try
+            {
+                // Use the producer client to send the batch of messages to the Service Bus topic
+                await sender.SendMessagesAsync(messageBatch);
+                Console.WriteLine($"A batch of {text} messages has been published to the topic.");
+            }
+            finally
+            {
+                // Calling DisposeAsync on client types is required to ensure that network
+                // resources and other unmanaged objects are properly cleaned up.
+                await sender.DisposeAsync();
+                await client.DisposeAsync();
+            }
         }
 
         internal async Task SendMessagesAsync(string topicName, int numOfMessages)

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.Resource.Test.ServiceBus", "Azure.Resource.Test.ServiceBus\Azure.Resource.Test.ServiceBus.csproj", "{D4ACF785-7EE7-484F-BC4C-8D4089EE67BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Resource.Test.Function", "Azure.Resource.Test.Function\Azure.Resource.Test.Function.csproj", "{89BFE79E-A985-4176-8000-8172FF2DC44C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.Resource.Test.Function", "Azure.Resource.Test.Function\Azure.Resource.Test.Function.csproj", "{89BFE79E-A985-4176-8000-8172FF2DC44C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Resource.Test.SendMessages", "Azure.Resource.Test.SendMessages\Azure.Resource.Test.SendMessages.csproj", "{A4B3B4AB-12BE-4D62-A3A4-0C63CAAB920A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{89BFE79E-A985-4176-8000-8172FF2DC44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89BFE79E-A985-4176-8000-8172FF2DC44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89BFE79E-A985-4176-8000-8172FF2DC44C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B3B4AB-12BE-4D62-A3A4-0C63CAAB920A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B3B4AB-12BE-4D62-A3A4-0C63CAAB920A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B3B4AB-12BE-4D62-A3A4-0C63CAAB920A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B3B4AB-12BE-4D62-A3A4-0C63CAAB920A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
