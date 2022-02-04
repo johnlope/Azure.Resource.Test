@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Azure.Resource.Test.EventGrid\Azure.Resource.Test.EventGrid.csproj" />
     <ProjectReference Include="..\Azure.Resource.Test.ServiceBus\Azure.Resource.Test.ServiceBus.csproj" />
   </ItemGroup>
 
